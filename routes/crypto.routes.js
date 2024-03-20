@@ -54,11 +54,11 @@ router.get("/:id", async (req, res) => {
 });
 
 // CRUD: Operación custom, no es CRUD
-router.get("/title/:title", async (req, res) => {
-  const title = req.params.title;
+router.get("/name/:name", async (req, res) => {
+  const name = req.params.name;
 
   try {
-    const crypto = await Crypto.find({ title: new RegExp("^" + title.toLowerCase(), "i") });
+    const crypto = await Crypto.find({ name: new RegExp("^" + name.toLowerCase(), "i") });
     if (crypto?.length) {
       res.json(crypto);
     } else {
@@ -74,9 +74,10 @@ router.get("/title/:title", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const crypto = new Crypto({
-      title: req.body.title,
-      author: req.body.author,
-      pages: req.body.pages,
+      name: req.body.name,
+      price: req.body.price,
+      marketCap: req.body.marketCap,
+      created_at: req.body.created_at,
     });
 
     const createdCrypto = await crypto.save();
