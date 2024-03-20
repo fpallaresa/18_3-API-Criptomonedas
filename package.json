@@ -1,0 +1,32 @@
+{
+  "name": "18_3-api-criptomonedas",
+  "version": "1.0.0",
+  "description": "API criptomonedas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch index.js",
+    "seed:crypto": "node ./seeds/crypto.seeds.js",
+    "prepare": "husky install",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "API",
+    "criptomonedas"
+  ],
+  "author": "francesc pallares",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "mongoose": "^8.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.0"
+  }
+}
