@@ -38,6 +38,22 @@ router.get("/", async (req, res) => {
   }
 });
 
+// CRUD: Operación custom, no es CRUD
+router.get("/csv", async (req, res) => {
+  try {
+    const crypto = await Crypto.find();
+
+    let csv = "Name;Price;MarketCap;Created at\n";
+    crypto.forEach((item) => {
+      csv += `${item.name};${item.price};${item.marketCap};${item.created_at}\n`;
+    });
+    res.header("Content-Type", "text/plain");
+    res.send(csv);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 // CRUD: READ
 router.get("/:id", async (req, res) => {
   try {
@@ -59,6 +75,7 @@ router.get("/name/:name", async (req, res) => {
 
   try {
     const crypto = await Crypto.find({ name: new RegExp("^" + name.toLowerCase(), "i") });
+
     if (crypto?.length) {
       res.json(crypto);
     } else {
@@ -69,7 +86,7 @@ router.get("/name/:name", async (req, res) => {
   }
 });
 
-// Endpoint de creación de libros
+// Endpoint de creación de crypto
 // CRUD: CREATE
 router.post("/", async (req, res) => {
   try {
@@ -87,7 +104,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Para elimnar libros
+// Para elimnar cypto
 // CRUD: DELETE
 router.delete("/:id", async (req, res) => {
   try {
