@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "cdf69654-d5f0-4c7b-a094-29f367c0f003",
+		"name": "NODE API CRYPTO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21261113"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get criptomonedas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto?page=3&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get crypto by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto/65fa937338461efa101266ef",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"65fa937338461efa101266ef"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search crypto by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto/name/FranCoin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"name",
+						"FranCoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get crypto csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get crypto sorted by marketcap",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto/sorted-by-marketcap?order=asc",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"sorted-by-marketcap"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get crypto sorted by price range",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto/price-range?min=0&max=10000",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"price-range"
+					],
+					"query": [
+						{
+							"key": "min",
+							"value": "0"
+						},
+						{
+							"key": "max",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create crypto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\":\"FranCoin\",\r\n   \"price\": 1.99,\r\n   \"marketCap\": 10,\r\n   \"created_at\": \"2024-03-21T00:00:01.000Z\" \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/crypto",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update crypto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\":\"FranCoin\",\r\n   \"price\": 2.99,\r\n   \"marketCap\": 15,\r\n   \"created_at\": \"2024-03-21T00:00:01.000Z\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/crypto/65fc3b9d2e1a1f3f92e43b3a",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"65fc3b9d2e1a1f3f92e43b3a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete crypto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto/65fc3b9d2e1a1f3f92e43b3a",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"65fc3b9d2e1a1f3f92e43b3a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete crypto reset",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/crypto/reset",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"crypto",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
