@@ -92,7 +92,7 @@ router.get("/csv", async (req, res) => {
 router.get("/sorted-by-marketcap", async (req, res) => {
   try {
     const order = req.query.order;
-    let cryptos = await Crypto.find().sort({ marketCap: order });
+    const cryptos = await Crypto.find().sort({ marketCap: order });
 
     res.json(cryptos);
   } catch (error) {
@@ -105,7 +105,7 @@ router.get("/price-range", async (req, res) => {
   try {
     const min = req.query.min;
     const max = req.query.max;
-    let query = {};
+    const query = {};
 
     if (min !== undefined && max !== undefined) {
       query.price = { $gte: min, $lte: max };
@@ -115,7 +115,7 @@ router.get("/price-range", async (req, res) => {
       query.price = { $lte: max };
     }
 
-    let cryptos = await Crypto.find(query);
+    const cryptos = await Crypto.find(query);
 
     res.json(cryptos);
   } catch (error) {

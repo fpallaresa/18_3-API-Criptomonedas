@@ -30,17 +30,16 @@ const cryptoList = [
 ];
 
 const cryptoSeed = async () => {
-
   // Borrar datos
   await Crypto.collection.drop();
-    console.log("Deleted cryptocoins");
+  console.log("Deleted cryptocoins");
 
-    // Añadimos cryptomonedas
-    const documents = cryptoList.map((crypto) => new Crypto(crypto));
-    await Crypto.insertMany(documents)
-    console.log("Saved Data properly");
+  // Añadimos cryptomonedas
+  const documents = cryptoList.map((crypto) => new Crypto(crypto));
+  await Crypto.insertMany(documents);
+  console.log("Saved Data properly");
 
-    return documents;
+  return documents;
 };
 
 module.exports = { cryptoSeed };
